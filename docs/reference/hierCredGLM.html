@@ -54,14 +54,14 @@ See <code><a href="hierCredTweedie.html">hierCredTweedie</a></code> when you als
 <span>  <span class="va">weights</span>,</span>
 <span>  p <span class="op">=</span> <span class="fl">1.5</span>,</span>
 <span>  link.power <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  muHatGLM <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>  muHatGLM <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  epsilon <span class="op">=</span> <span class="fl">1e-04</span>,</span>
 <span>  maxiter <span class="op">=</span> <span class="fl">500</span>,</span>
 <span>  maxiterGLM <span class="op">=</span> <span class="fl">500</span>,</span>
-<span>  verbose <span class="op">=</span> <span class="cn">F</span>,</span>
-<span>  returnData <span class="op">=</span> <span class="cn">T</span>,</span>
-<span>  balanceProperty <span class="op">=</span> <span class="cn">T</span>,</span>
-<span>  y <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  returnData <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  balanceProperty <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  y <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -182,20 +182,19 @@ which used the intercept as estimated by the GLM. If <code>FALSE</code>, the est
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"dataCar"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">fit</span> <span class="op">=</span> <span class="fu">hierCredGLM</span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">area</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">VehicleType</span> <span class="op">/</span> <span class="va">VehicleBody</span><span class="op">)</span>, <span class="va">dataCar</span>, weights <span class="op">=</span> <span class="va">w</span>,</span></span>
-<span class="r-in"><span>p <span class="op">=</span> <span class="fl">1.75</span>, epsilon <span class="op">=</span> <span class="fl">1e-4</span><span class="op">)</span></span></span>
+<span class="r-in"><span>p <span class="op">=</span> <span class="fl">1.7</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Running algorithm.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Maximum number of iterations reached without convergence</span>
 <span class="r-in"><span><span class="va">fit</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hierCredGLM(formula = Y ~ area + (1 | VehicleType/VehicleBody), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     data = dataCar, weights = w, p = 1.75, epsilon = 1e-04)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     data = dataCar, weights = w, p = 1.7)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Combination of the hierarchical credibility model with a GLM</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Estimated variance parameters:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[jk]): 349.8834 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[j]): 629.7084 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[jk]): 349.7505 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[j]): 629.4394 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Unique number of categories of VehicleType: 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Unique number of categories of VehicleBody: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -207,20 +206,20 @@ which used the intercept as estimated by the GLM. If <code>FALSE</code>, the est
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)        areaB        areaC        areaD        areaE        areaF  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      3.0995      -0.2321       0.1286       4.5212       2.8023       0.1842  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5.63463      0.04712      0.07701     -0.18517      0.13033      0.46341  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hierCredGLM(formula = Y ~ area + (1 | VehicleType/VehicleBody), </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     data = dataCar, weights = w, p = 1.75, epsilon = 1e-04)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     data = dataCar, weights = w, p = 1.7)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Combination of the hierarchical credibility model with a GLM</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Estimated variance parameters:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Individual contracts: 4290699 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[jk]): 349.8834 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[j]): 629.7084 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Individual contracts: 4290291 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[jk]): 349.7505 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[j]): 629.4394 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Unique number of categories of VehicleType: 2</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Unique number of categories of VehicleBody: 9</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -232,45 +231,45 @@ which used the intercept as estimated by the GLM. If <code>FALSE</code>, the est
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Coefficients:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  ------------------------------------------------------------------ </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Estimate Std. Error t value   Pr(&gt;|t|)    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)   3.0995    0.06454  48.028  0.000e+00 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> areaB        -0.2321    0.10145  -2.288  2.215e-02 *  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> areaC         0.1286    0.08562   1.502  1.330e-01    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> areaD         4.5212    0.08103  55.794  0.000e+00 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> areaE         2.8023    0.09627  29.108 3.969e-185 ***</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> areaF         0.1842    0.15530   1.186  2.357e-01    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  5.63463    0.08794 64.0746   0.0000 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaB        0.04712    0.13009  0.3622   0.7172    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaC        0.07701    0.11713  0.6575   0.5108    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaD       -0.18517    0.15477 -1.1964   0.2315    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaE        0.13033    0.16747  0.7782   0.4364    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaF        0.46341    0.19218  2.4113   0.0159 *  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ------------------------------------------------------------------- </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> null df: 67565; null deviance: 1204692;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> residuals df: 67560; residuals deviance: 1535293;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> null df: 67565; null deviance: 1405114;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> residuals df: 67560; residuals deviance: 1400154;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> # obs.: 67566; # non-zero weighted obs.: 67566;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> AIC: NA; log Likelihood: ;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> RSS: 10690292; dispersion: 158.234; iterations: 25;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> rank: 6; max tolerance: 1.38e-01; convergence: FALSE.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> RSS: 21226516; dispersion: 314.1876; iterations: 11;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> rank: 6; max tolerance: 5.91e-11; convergence: TRUE.</span>
 <span class="r-in"><span><span class="fu"><a href="ranef.html">ranef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $sector</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         VehicleType        Uj</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:   Common vehicle 0.9576586</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2: Uncommon vehicle 1.0527986</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:   Common vehicle 0.9573893</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: Uncommon vehicle 1.0525247</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $group</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         VehicleType VehicleBody       Ujk</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1:   Common vehicle       HBACK 1.0253741</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2:   Common vehicle       SEDAN 0.9529338</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3:   Common vehicle         UTE 0.9971258</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4: Uncommon vehicle       COUPE 1.0233400</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5: Uncommon vehicle       HDTOP 1.0065228</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6: Uncommon vehicle       MIBUS 1.0042204</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7: Uncommon vehicle       PANVN 1.0023518</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8: Uncommon vehicle       STNWG 0.9837107</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9: Uncommon vehicle       TRUCK 1.0077195</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:   Common vehicle       HBACK 1.0252939</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:   Common vehicle       SEDAN 0.9528740</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:   Common vehicle         UTE 0.9971015</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: Uncommon vehicle       COUPE 1.0233226</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: Uncommon vehicle       HDTOP 1.0065053</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6: Uncommon vehicle       MIBUS 1.0042123</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7: Uncommon vehicle       PANVN 1.0023449</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8: Uncommon vehicle       STNWG 0.9836377</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9: Uncommon vehicle       TRUCK 1.0077063</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu"><a href="fixef.html">fixef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)       areaB       areaC       areaD       areaE       areaF </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3.0995237  -0.2321079   0.1286382   4.5212464   2.8022888   0.1841543 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5.63463077  0.04712428  0.07701333 -0.18517287  0.13033063  0.46341174 </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
