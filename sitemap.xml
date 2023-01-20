@@ -49,10 +49,19 @@
     <loc>https://bavodc.github.io/actuaRE/reference/hachemeisterLong.html</loc>
   </url>
   <url>
+    <loc>https://bavodc.github.io/actuaRE/reference/hierCredGLM-class.html</loc>
+  </url>
+  <url>
     <loc>https://bavodc.github.io/actuaRE/reference/hierCredGLM.html</loc>
   </url>
   <url>
+    <loc>https://bavodc.github.io/actuaRE/reference/hierCredibility-class.html</loc>
+  </url>
+  <url>
     <loc>https://bavodc.github.io/actuaRE/reference/hierCredibility.html</loc>
+  </url>
+  <url>
+    <loc>https://bavodc.github.io/actuaRE/reference/hierCredTweedie-class.html</loc>
   </url>
   <url>
     <loc>https://bavodc.github.io/actuaRE/reference/hierCredTweedie.html</loc>
@@ -100,6 +109,9 @@
     <loc>https://bavodc.github.io/actuaRE/reference/print.hierCredTweedie.html</loc>
   </url>
   <url>
+    <loc>https://bavodc.github.io/actuaRE/reference/ranef-actuaRE.html</loc>
+  </url>
+  <url>
     <loc>https://bavodc.github.io/actuaRE/reference/ranef.hierCredGLM.html</loc>
   </url>
   <url>
@@ -122,6 +134,9 @@
   </url>
   <url>
     <loc>https://bavodc.github.io/actuaRE/reference/tweedieGLMM.html</loc>
+  </url>
+  <url>
+    <loc>https://bavodc.github.io/actuaRE/reference/weights-actuaRE.html</loc>
   </url>
   <url>
     <loc>https://bavodc.github.io/actuaRE/reference/weights.cpglm.html</loc>
