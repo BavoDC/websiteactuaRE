@@ -12,7 +12,7 @@ you want fix p."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/
     
     <a class="navbar-brand me-2" href="../index.html">actuaRE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -176,20 +176,182 @@ Possible choices are <code>"nlminb"</code> (the default, see <code><a href="http
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="hierCredibility.html">hierCredibility</a></code>, <code><a href="hierCredGLM.html">hierCredGLM</a></code>, <code><a href="https://rdrr.io/pkg/cplm/man/cpglm.html" class="external-link">cpglm</a></code></p></div>
+    <div class="dont-index"><p><code><a href="hierCredTweedie-class.html">hierCredTweedie-class</a></code>, <code><a href="hierCredTweedie-class.html">fitted.hierCredTweedie</a></code>, <code><a href="predict.hierCredTweedie.html">predict.hierCredTweedie</a></code>, <code><a href="ranef-actuaRE.html">ranef-actuaRE</a></code>,
+ <code><a href="weights-actuaRE.html">weights-actuaRE</a></code>, <code><a href="hierCredibility.html">hierCredibility</a></code>, <code><a href="hierCredGLM.html">hierCredGLM</a></code>, <code><a href="https://rdrr.io/pkg/cplm/man/cpglm.html" class="external-link">cpglm</a></code>, <code><a href="plotRE.html">plotRE</a></code>,
+ <code><a href="adjustIntercept.html">adjustIntercept</a></code>, <code><a href="BalanceProperty.html">BalanceProperty</a></code>
+ @references   Campo, B.D.C. and Antonio, Katrien (2023). Insurance pricing with hierarchically structured data an illustration with a workers' compensation insurance portfolio. <em>Scandinavian Actuarial Journal</em>, doi: 10.1080/03461238.2022.2161413</p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"dataCar"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">fit</span> <span class="op">=</span> <span class="fu">hierCredTweedie</span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">area</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">VehicleType</span> <span class="op">/</span> <span class="va">VehicleBody</span><span class="op">)</span>, <span class="va">dataCar</span>,</span></span>
 <span class="r-in"><span>weights <span class="op">=</span> <span class="va">w</span>, epsilon <span class="op">=</span> <span class="fl">1e-6</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">fit</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> hierCredTweedie(formula = Y ~ area + (1 | VehicleType/VehicleBody), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     data = dataCar, weights = w, epsilon = 1e-06)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Combination of the hierarchical credibility model with a GLM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Estimated variance parameters:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[jk]): 349.3256 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[j]): 628.8985 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Unique number of categories of VehicleType: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Unique number of categories of VehicleBody: 9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results contract-specific risk factors:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cpglm(formula = FormulaGLM, link = "log", data = data, weights = wijkt, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     control = cpglmControl, optimizer = optimizer)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Deviance Residuals: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Min      1Q  Median      3Q     Max  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -8.095  -5.970  -4.573  -2.928  86.137  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  5.63662    0.08834  63.803   &lt;2e-16 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaB        0.04772    0.13048   0.366   0.7146    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaC        0.07692    0.11742   0.655   0.5124    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaD       -0.18574    0.15671  -1.185   0.2359    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaE        0.13053    0.16712   0.781   0.4348    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaF        0.46389    0.18823   2.464   0.0137 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Estimated dispersion parameter: 175.29</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Estimated index parameter: 1.5705 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual deviance: 2360054  on 67560  degrees of freedom</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> AIC:  116884 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of Fisher Scoring iterations:  6 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> hierCredTweedie(formula = Y ~ area + (1 | VehicleType/VehicleBody), </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     data = dataCar, weights = w, epsilon = 1e-06)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Combination of the hierarchical credibility model with a GLM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Estimated variance parameters:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Individual contracts: 4289401 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[jk]): 349.3256 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Var(V[j]): 628.8985 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Unique number of categories of VehicleType: 2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Unique number of categories of VehicleBody: 9</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Results contract-specific risk factors:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cpglm(formula = FormulaGLM, link = "log", data = data, weights = wijkt, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     control = cpglmControl, optimizer = optimizer)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Deviance Residuals: </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Min      1Q  Median      3Q     Max  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -8.095  -5.970  -4.573  -2.928  86.137  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             Estimate Std. Error t value Pr(&gt;|t|)    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  5.63662    0.08834  63.803   &lt;2e-16 ***</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaB        0.04772    0.13048   0.366   0.7146    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaC        0.07692    0.11742   0.655   0.5124    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaD       -0.18574    0.15671  -1.185   0.2359    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaE        0.13053    0.16712   0.781   0.4348    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaF        0.46389    0.18823   2.464   0.0137 *  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Estimated dispersion parameter: 175.29</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Estimated index parameter: 1.5705 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Residual deviance: 2360054  on 67560  degrees of freedom</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> AIC:  116884 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Number of Fisher Scoring iterations:  6 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $call</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> cpglm(formula = FormulaGLM, link = "log", data = data, weights = wijkt, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     control = cpglmControl, optimizer = optimizer)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $deviance</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 2360054</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $aic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 116884</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $contrasts</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $df.residual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 67560</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $iter</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $na.action</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $deviance.resid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       Min        1Q    Median        3Q       Max </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> -8.095052 -5.969509 -4.572944 -2.927895 86.137065 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $coefficients</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                Estimate Std. Error    t value   Pr(&gt;|t|)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  5.63661846 0.08834343 63.8034805 0.00000000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaB        0.04771903 0.13047847  0.3657234 0.71457260</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaC        0.07691849 0.11741546  0.6550968 0.51240767</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaD       -0.18573986 0.15670655 -1.1852719 0.23591415</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaE        0.13052750 0.16711877  0.7810464 0.43477797</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaF        0.46389185 0.18823319  2.4644530 0.01372473</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $dispersion</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 175.2852</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $vcov</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>              (Intercept)        areaB        areaC        areaD        areaE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)  0.007804562 -0.007804562 -0.007804562 -0.007804562 -0.007804562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaB       -0.007804562  0.017024631  0.007804562  0.007804562  0.007804562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaC       -0.007804562  0.007804562  0.013786391  0.007804562  0.007804562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaD       -0.007804562  0.007804562  0.007804562  0.024556942  0.007804562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaE       -0.007804562  0.007804562  0.007804562  0.007804562  0.027928682</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaF       -0.007804562  0.007804562  0.007804562  0.007804562  0.007804562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    areaF</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept) -0.007804562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaB        0.007804562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaC        0.007804562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaD        0.007804562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaE        0.007804562</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> areaF        0.035431734</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $p</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 1.570459</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu"><a href="ranef.html">ranef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $sector</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         VehicleType        Uj</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:   Common vehicle 0.9557004</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2: Uncommon vehicle 1.0509018</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $group</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         VehicleType VehicleBody       Ujk</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1:   Common vehicle       HBACK 1.0248171</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2:   Common vehicle       SEDAN 0.9524791</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3:   Common vehicle         UTE 0.9969568</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4: Uncommon vehicle       COUPE 1.0232340</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5: Uncommon vehicle       HDTOP 1.0064096</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6: Uncommon vehicle       MIBUS 1.0041678</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7: Uncommon vehicle       PANVN 1.0022996</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8: Uncommon vehicle       STNWG 0.9831763</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9: Uncommon vehicle       TRUCK 1.0076169</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="fu"><a href="fixef.html">fixef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)       areaB       areaC       areaD       areaE       areaF </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  5.63661846  0.04771903  0.07691849 -0.18573986  0.13052750  0.46389185 </span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -197,7 +359,7 @@ Possible choices are <code>"nlminb"</code> (the default, see <code><a href="http
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Bavo D.C. Campo.</p>
+  <p></p><p>Developed by Campo Bavo D.C..</p>
 </div>
 
 <div class="pkgdown-footer-right">

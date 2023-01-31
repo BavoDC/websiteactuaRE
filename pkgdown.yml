@@ -3,7 +3,7 @@ pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   actuaRE: actuaRE.html
-last_built: 2023-01-20T17:06Z
+last_built: 2023-01-31T13:46Z
 urls:
   reference: https://bavodc.github.io/actuaRE/reference
   article: https://bavodc.github.io/actuaRE/articles

@@ -12,7 +12,7 @@ See hierCredTweedie when you also want to estimate the p."><!-- mathjax --><scri
     
     <a class="navbar-brand me-2" href="../index.html">actuaRE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -171,19 +171,22 @@ which used the intercept as estimated by the GLM. If <code>FALSE</code>, the est
 </dl></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Ohlsson, E. (2008). Combining generalized linear models and credibility models in practice. <em>Scandinavian Actuarial Journal</em> <b>2008</b>(4), 301–314.</p>
+    <p>Campo, B.D.C. and Antonio, Katrien (2023). Insurance pricing with hierarchically structured data an illustration with a workers' compensation insurance portfolio. <em>Scandinavian Actuarial Journal</em>, doi: 10.1080/03461238.2022.2161413</p>
+<p>Ohlsson, E. (2008). Combining generalized linear models and credibility models in practice. <em>Scandinavian Actuarial Journal</em> <b>2008</b>(4), 301–314.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="hierCredibility.html">hierCredibility</a></code>, <code><a href="hierCredTweedie.html">hierCredTweedie</a></code></p></div>
+    <div class="dont-index"><p><code><a href="hierCredGLM-class.html">hierCredGLM-class</a></code>, <code><a href="hierCredGLM-class.html">fitted.hierCredGLM</a></code>, <code><a href="predict.hierCredGLM.html">predict.hierCredGLM</a></code>, <code><a href="ranef-actuaRE.html">ranef-actuaRE</a></code>,
+<code><a href="weights-actuaRE.html">weights-actuaRE</a></code>, <code><a href="hierCredibility.html">hierCredibility</a></code>, <code><a href="hierCredTweedie.html">hierCredTweedie</a></code>, <code><a href="plotRE.html">plotRE</a></code>,
+ <code><a href="adjustIntercept.html">adjustIntercept</a></code>, <code><a href="BalanceProperty.html">BalanceProperty</a></code></p></div>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"dataCar"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"dataCar"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">fit</span> <span class="op">=</span> <span class="fu">hierCredGLM</span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">area</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">VehicleType</span> <span class="op">/</span> <span class="va">VehicleBody</span><span class="op">)</span>, <span class="va">dataCar</span>, weights <span class="op">=</span> <span class="va">w</span>,</span></span>
 <span class="r-in"><span>p <span class="op">=</span> <span class="fl">1.7</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Running algorithm.</span>
 <span class="r-in"><span><span class="va">fit</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Call:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> hierCredGLM(formula = Y ~ area + (1 | VehicleType/VehicleBody), </span>
@@ -270,6 +273,7 @@ which used the intercept as estimated by the GLM. If <code>FALSE</code>, the est
 <span class="r-in"><span><span class="fu"><a href="fixef.html">fixef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> (Intercept)       areaB       areaC       areaD       areaE       areaF </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  5.63463077  0.04712428  0.07701333 -0.18517287  0.13033063  0.46341174 </span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -277,7 +281,7 @@ which used the intercept as estimated by the GLM. If <code>FALSE</code>, the est
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Bavo D.C. Campo.</p>
+  <p></p><p>Developed by Campo Bavo D.C..</p>
 </div>
 
 <div class="pkgdown-footer-right">

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">actuaRE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -140,9 +140,15 @@ hierarchical level (\(bar(Y)[\%.\% j \%.\% \%.\%]^z\)) and at the second hierarc
 </dl></div>
     <div class="section level2">
     <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a></h2>
-    <p>Jewell, W. S. (1975). <em>The use of collateral data in credibility theory: a hierarchical model</em>. Laxenburg: IIASA.</p>
+    <p>Campo, B.D.C. and Antonio, Katrien (2023). Insurance pricing with hierarchically structured data an illustration with a workers' compensation insurance portfolio. <em>Scandinavian Actuarial Journal</em>, doi: 10.1080/03461238.2022.2161413</p>
 <p>Dannenburg, D. R., Kaas, R. and Goovaerts, M. J. (1996). <em>Practical actuarial credibility models</em>. Amsterdam: IAE (Institute of Actuarial Science and Econometrics of the University of Amsterdam).</p>
+<p>Jewell, W. S. (1975). <em>The use of collateral data in credibility theory: a hierarchical model</em>. Laxenburg: IIASA.</p>
 <p>Ohlsson, E. (2005). Simplified estimation of structure parameters in hierarchical credibility. <em>Presented at the Zurich ASTIN Colloquium</em>.<a href="http://www.actuaries.org/ASTIN/Colloquia/Zurich/Ohlsson.pdf" class="external-link">http://www.actuaries.org/ASTIN/Colloquia/Zurich/Ohlsson.pdf</a></p>
+    </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p><code><a href="hierCredibility-class.html">hierCredibility-class</a></code>, <code><a href="hierCredibility-class.html">fitted.hierCredibility</a></code>, <code><a href="predict.hierCredibility.html">predict.hierCredibility</a></code>, <code><a href="ranef-actuaRE.html">ranef-actuaRE</a></code>,
+ <code><a href="weights-actuaRE.html">weights-actuaRE</a></code>, <code><a href="hierCredTweedie.html">hierCredTweedie</a></code>, <code><a href="hierCredGLM.html">hierCredGLM</a></code>, <code><a href="https://rdrr.io/pkg/cplm/man/cpglm.html" class="external-link">cpglm</a></code>, <code><a href="plotRE.html">plotRE</a></code></p></div>
     </div>
 
     <div class="section level2">
@@ -159,7 +165,7 @@ hierarchical level (\(bar(Y)[\%.\% j \%.\% \%.\%]^z\)) and at the second hierarc
 <span class="r-msg co"><span class="r-pr">#&gt;</span> The following object is masked from 'package:grDevices':</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     cm</span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bavodc.github.io/websiteactuaRE/" class="external-link">actuaRE</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bavodc.github.io/websiteactuaRE/index.html" class="external-link">actuaRE</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"hachemeister"</span>, package <span class="op">=</span> <span class="st">"actuar"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">Df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">hachemeister</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">X</span>  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span>cohort <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>, <span class="va">hachemeister</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -232,7 +238,7 @@ hierarchical level (\(bar(Y)[\%.\% j \%.\% \%.\%]^z\)) and at the second hierarc
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Bavo D.C. Campo.</p>
+  <p></p><p>Developed by Campo Bavo D.C..</p>
 </div>
 
 <div class="pkgdown-footer-right">

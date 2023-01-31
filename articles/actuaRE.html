@@ -20,15 +20,15 @@
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
+
 
     <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
-    
+
     <a class="navbar-brand me-2" href="../index.html">actuaRE</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,7 +49,7 @@
       <ul class="navbar-nav"></ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-article">
 
@@ -59,17 +59,17 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Introduction to actuaRE</h1>
-                        <h4 data-toc-skip class="author">Bavo DC
+                        <h4 data-toc-skip class="author">Bavo D.C.
 Campo</h4>
-            
-            <h4 data-toc-skip class="date">2023-01-20</h4>
-      
-      
+
+            <h4 data-toc-skip class="date">2023-01-31</h4>
+
+
       <div class="d-none name"><code>actuaRE.Rmd</code></div>
     </div>
 
-    
-    
+
+
 <div>
 <p><img src="actuaRE.png" width="25%"></p>
 </div>
@@ -96,7 +96,7 @@ example.</p>
 <p class="caption">
 Figure 1: Hierarchical structure of a hypothetical example
 </p>
-<img src="HierarchicalStructureAdj.png" alt="Figure 1: Hierarchical structure of a hypothetical example" width="358">
+<img src="HierarchicalStructureAdj.png" alt="Figure 1: Hierarchical structure of a hypothetical example" width="100%">
 </div>
 <div class="section level3">
 <h3 id="which-random-effects-models-can-we-fit-using-actuare">Which random effects models can we fit using actuaRE?<a class="anchor" aria-label="anchor" href="#which-random-effects-models-can-we-fit-using-actuare"></a>
@@ -157,13 +157,13 @@ fit</p>
         E[Y_{ijkt} | U_j, U_{jk}] &amp;= \mu + U_j + U_{jk}.
 \end{align*}\]</span></p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/capture.output.html" class="external-link">capture.output</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bavodc.github.io/websiteactuaRE/" class="external-link">actuaRE</a></span><span class="op">)</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># suppress startup message</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/capture.output.html" class="external-link">capture.output</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bavodc.github.io/websiteactuaRE/index.html" class="external-link">actuaRE</a></span><span class="op">)</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="co"># suppress startup message</span></span>
 <span><span class="co">#&gt; Loading required package: cplm</span></span>
 <span><span class="co">#&gt; Loading required package: coda</span></span>
 <span><span class="co">#&gt; Loading required package: Matrix</span></span>
 <span><span class="co">#&gt; Loading required package: splines</span></span>
-<span><span class="co">#&gt; Package 'actuaRE' version 0.1.1</span></span>
-<span><span class="co">#&gt; This is version 0.1.1 of actuaRE</span></span>
+<span><span class="co">#&gt; Package 'actuaRE' version 0.1.3</span></span>
+<span><span class="co">#&gt; This is version 0.1.3 of actuaRE</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"hachemeisterLong"</span><span class="op">)</span></span>
 <span><span class="va">fitHC</span> <span class="op">=</span> <span class="fu"><a href="../reference/hierCredibility.html">hierCredibility</a></span><span class="op">(</span><span class="va">ratio</span>, <span class="va">weight</span>, <span class="va">cohort</span>, <span class="va">state</span>, <span class="va">hachemeisterLong</span><span class="op">)</span></span>
 <span><span class="va">fitHC</span></span>
@@ -260,7 +260,7 @@ effects.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">newDt</span> <span class="op">=</span> <span class="va">hachemeisterLong</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">hachemeisterLong</span><span class="op">)</span>, <span class="fl">5</span>, <span class="cn">F</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html" class="external-link">predict</a></span><span class="op">(</span><span class="va">fitHC</span>, <span class="va">newDt</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 1871.491 1523.251 1523.251 1523.251 1494.229</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 1871.491 1523.251 1494.229 1585.748 1585.748</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="combining-the-hierarchical-credibility-model-with-a-glm">Combining the hierarchical credibility model with a GLM<a class="anchor" aria-label="anchor" href="#combining-the-hierarchical-credibility-model-with-a-glm"></a>
@@ -280,51 +280,50 @@ Conversely, <code>hierCredTweedie</code> estimates the power parameter
 <span class="math inline">\(p\)</span> along with the other parameters
 using the <code>cpglm</code> function from the <code>cplm</code>
 package.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"dataCar"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">=</span> <span class="fu">hierCredGLM</span>(Y <span class="sc">~</span> area <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> VehicleType <span class="sc">/</span> VehicleBody), dataCar, <span class="at">weights =</span> w)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>Running algorithm.</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; hierCredGLM(formula = Y ~ area + (1 | VehicleType/VehicleBody), </span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     data = dataCar, weights = w)</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Combination of the hierarchical credibility model with a GLM</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Estimated variance parameters:</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Individual contracts: 4288715 </span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Var(V[jk]): 349.22 </span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   Var(V[j]): 628.379 </span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Unique number of categories of VehicleType: 2</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Unique number of categories of VehicleBody: 9</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Results contract-specific risk factors:</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Generalized Linear Model of class 'speedglm':</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Call:  speedglm(formula = FormulaGLM, data = data, family = tweedie(var.power = p,      link.power = 0), weights = data$wijkt, model = T, y = T,      fitted = T) </span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Coefficients:</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;  ------------------------------------------------------------------ </span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; (Intercept)  5.63582    0.08857 63.6304  0.00000 ***</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; areaB        0.04804    0.13070  0.3676  0.71321    </span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; areaC        0.07686    0.11758  0.6537  0.51333    </span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; areaD       -0.18602    0.15779 -1.1789  0.23844    </span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; areaE        0.13070    0.16694  0.7829  0.43370    </span></span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; areaF        0.46429    0.18616  2.4941  0.01263 *  </span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ------------------------------------------------------------------- </span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 </span></span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ---</span></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; null df: 67565; null deviance: 3314186;</span></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; residuals df: 67560; residuals deviance: 3298572;</span></span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; # obs.: 67566; # non-zero weighted obs.: 67566;</span></span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; AIC: NA; log Likelihood: ;</span></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; RSS: 66083459; dispersion: 978.1447; iterations: 7;</span></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; rank: 6; max tolerance: 1.84e-15; convergence: TRUE.</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"dataCar"</span><span class="op">)</span></span>
+<span><span class="va">fit</span> <span class="op">=</span> <span class="fu"><a href="../reference/hierCredGLM.html">hierCredGLM</a></span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">area</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">VehicleType</span> <span class="op">/</span> <span class="va">VehicleBody</span><span class="op">)</span>, <span class="va">dataCar</span>, weights <span class="op">=</span> <span class="va">w</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; hierCredGLM(formula = Y ~ area + (1 | VehicleType/VehicleBody), </span></span>
+<span><span class="co">#&gt;     data = dataCar, weights = w)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Combination of the hierarchical credibility model with a GLM</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Estimated variance parameters:</span></span>
+<span><span class="co">#&gt;   Individual contracts: 4288715 </span></span>
+<span><span class="co">#&gt;   Var(V[jk]): 349.22 </span></span>
+<span><span class="co">#&gt;   Var(V[j]): 628.379 </span></span>
+<span><span class="co">#&gt; Unique number of categories of VehicleType: 2</span></span>
+<span><span class="co">#&gt; Unique number of categories of VehicleBody: 9</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Results contract-specific risk factors:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Generalized Linear Model of class 'speedglm':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:  speedglm(formula = FormulaGLM, data = data, family = tweedie(var.power = p,      link.power = 0), weights = data$wijkt, model = T, y = T,      fitted = T) </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt;  ------------------------------------------------------------------ </span></span>
+<span><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span><span class="co">#&gt; (Intercept)  5.63582    0.08857 63.6304  0.00000 ***</span></span>
+<span><span class="co">#&gt; areaB        0.04804    0.13070  0.3676  0.71321    </span></span>
+<span><span class="co">#&gt; areaC        0.07686    0.11758  0.6537  0.51333    </span></span>
+<span><span class="co">#&gt; areaD       -0.18602    0.15779 -1.1789  0.23844    </span></span>
+<span><span class="co">#&gt; areaE        0.13070    0.16694  0.7829  0.43370    </span></span>
+<span><span class="co">#&gt; areaF        0.46429    0.18616  2.4941  0.01263 *  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ------------------------------------------------------------------- </span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; null df: 67565; null deviance: 3314186;</span></span>
+<span><span class="co">#&gt; residuals df: 67560; residuals deviance: 3298572;</span></span>
+<span><span class="co">#&gt; # obs.: 67566; # non-zero weighted obs.: 67566;</span></span>
+<span><span class="co">#&gt; AIC: NA; log Likelihood: ;</span></span>
+<span><span class="co">#&gt; RSS: 66083459; dispersion: 978.1447; iterations: 7;</span></span>
+<span><span class="co">#&gt; rank: 6; max tolerance: 1.84e-15; convergence: TRUE.</span></span></code></pre></div>
 <p>We use the same syntax as used by the package <code>lme4</code> to
 specify the model formula. Here,
 <code>(1 | VehicleType / VehicleBody)</code> specifies a random effect
@@ -409,22 +408,19 @@ update the intercept to <span class="math inline">\(\hat{\mu} +
 <code>hierCredGLM</code>, <code>hierCredTweedie</code> and
 <code>tweedieGLMM</code>. If you do not wish to update the intercept,
 you can set the argument <code>balanceProperty = FALSE</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fitnoBP  <span class="ot">=</span> <span class="fu">hierCredGLM</span>(Y <span class="sc">~</span> area <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> VehicleType <span class="sc">/</span> VehicleBody), dataCar, <span class="at">weights =</span> w, <span class="at">balanceProperty =</span> F)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>Running algorithm.</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>yHatnoBP <span class="ot">=</span> <span class="fu">fitted</span>(fitnoBP)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>w        <span class="ot">=</span> <span class="fu">weights</span>(fitnoBP, <span class="st">"prior"</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>y        <span class="ot">=</span> fitnoBP<span class="sc">$</span>y</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>fitBP  <span class="ot">=</span> <span class="fu">hierCredGLM</span>(Y <span class="sc">~</span> area <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> VehicleType <span class="sc">/</span> VehicleBody), dataCar, <span class="at">weights =</span> w, <span class="at">balanceProperty =</span> T)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>Running algorithm.</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>yHatBP <span class="ot">=</span> <span class="fu">fitted</span>(fitBP)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(w <span class="sc">*</span> y) <span class="sc">/</span> <span class="fu">sum</span>(w <span class="sc">*</span> yHatnoBP)</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1.001388</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(w <span class="sc">*</span> y) <span class="sc">/</span> <span class="fu">sum</span>(w <span class="sc">*</span> yHatBP)</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; [1] 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fitnoBP</span>  <span class="op">=</span> <span class="fu"><a href="../reference/hierCredGLM.html">hierCredGLM</a></span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">area</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">VehicleType</span> <span class="op">/</span> <span class="va">VehicleBody</span><span class="op">)</span>, <span class="va">dataCar</span>, weights <span class="op">=</span> <span class="va">w</span>, balanceProperty <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span>
+<span><span class="va">yHatnoBP</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">fitnoBP</span><span class="op">)</span></span>
+<span><span class="va">w</span>        <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/weights.html" class="external-link">weights</a></span><span class="op">(</span><span class="va">fitnoBP</span>, <span class="st">"prior"</span><span class="op">)</span></span>
+<span><span class="va">y</span>        <span class="op">=</span> <span class="va">fitnoBP</span><span class="op">$</span><span class="va">y</span></span>
+<span></span>
+<span><span class="va">fitBP</span>  <span class="op">=</span> <span class="fu"><a href="../reference/hierCredGLM.html">hierCredGLM</a></span><span class="op">(</span><span class="va">Y</span> <span class="op">~</span> <span class="va">area</span> <span class="op">+</span> <span class="op">(</span><span class="fl">1</span> <span class="op">|</span> <span class="va">VehicleType</span> <span class="op">/</span> <span class="va">VehicleBody</span><span class="op">)</span>, <span class="va">dataCar</span>, weights <span class="op">=</span> <span class="va">w</span>, balanceProperty <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="va">yHatBP</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/fitted.values.html" class="external-link">fitted</a></span><span class="op">(</span><span class="va">fitBP</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">w</span> <span class="op">*</span> <span class="va">y</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">w</span> <span class="op">*</span> <span class="va">yHatnoBP</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1.001388</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">w</span> <span class="op">*</span> <span class="va">y</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">w</span> <span class="op">*</span> <span class="va">yHatBP</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1</span></span></code></pre></div>
 <p>Alternatively, you can use the build-in function
 <code>BalanceProperty</code>. You can use this function with any object
 that has the slots <code>fitted</code>, <code>weights</code> and
@@ -505,7 +501,7 @@ Journal</em> 10 (1): 179–202.
 
     <footer><div class="pkgdown-footer-left">
   <p></p>
-<p>Developed by Bavo D.C. Campo.</p>
+<p>Developed by Bavo D.C. Campo</p>
 </div>
 
 <div class="pkgdown-footer-right">
@@ -516,9 +512,9 @@ Journal</em> 10 (1): 179–202.
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>
